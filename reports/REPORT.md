@@ -1,7 +1,7 @@
 # Lab 25B — Report
 
 **Họ tên / nhóm:** Nguyễn Trọng Minh — 2A202602496 — K4-Track03 (bài làm nhóm, cùng Lê Mạnh Cường — 2A202602604)
-**Commit:** `PENDING_HASH` (nhánh `main`) — toàn bộ số liệu dưới đây sinh lại từ chính commit này; artifact thô nằm trong `reports/`
+**Commit:** `c9f4ab2` (nhánh `main`) — toàn bộ số liệu dưới đây sinh lại từ chính commit này; artifact thô nằm trong `reports/`
 **Điểm tự động (`make grade`):** **84.0** / 88 — thiếu đúng 4 điểm `slo_hidden` (giảng viên chấm trên dataset ẩn, `reports/scoreboard.json` ghi `"pass": null`).
 
 > Mọi nhận định dưới đây đều kèm số. Nguồn: `reports/gameday/*.json`, `reports/gameday/*_timeseries.csv`, `reports/workflows.json`, `reports/slo.json`, `reports/cache/*.json`.
