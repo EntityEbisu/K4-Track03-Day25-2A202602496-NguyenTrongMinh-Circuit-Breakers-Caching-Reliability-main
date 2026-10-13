@@ -1,7 +1,7 @@
 # Lab 25B — Report
 
 **Họ tên / nhóm:** Nguyễn Trọng Minh — 2A202602496 — K4-Track03 (bài làm nhóm, cùng Lê Mạnh Cường — 2A202602604)
-**Commit:** `c9f4ab2` (nhánh `main`) — toàn bộ số liệu dưới đây sinh lại từ chính commit này; artifact thô nằm trong `reports/`
+**Commit:** `c9f4ab2` — commit chứa toàn bộ code + artifact (`reports/`); commit sau đó chỉ chỉnh lại report
 **Điểm tự động (`make grade`):** **84.0** / 88 — thiếu đúng 4 điểm `slo_hidden` (giảng viên chấm trên dataset ẩn, `reports/scoreboard.json` ghi `"pass": null`).
 
 > Mọi nhận định dưới đây đều kèm số. Nguồn: `reports/gameday/*.json`, `reports/gameday/*_timeseries.csv`, `reports/workflows.json`, `reports/slo.json`, `reports/cache/*.json`.
@@ -194,7 +194,7 @@ Naive alerter *nhanh hơn* ở `checkout_bug` (1 phút so với 27) và `degrade
 
 ## 7. Một điểm yếu còn lại
 
-**Tình huống còn xử lý kém:** khi provider dẫn đầu vừa chậm vừa đang mở breaker, p95 của tôi trên G2 là **10,92 s** — cao hơn hẳn p50 (3,057 s) và chỉ cách mức trần 10 s mà G4 đang phải tuân thủ đúng **0,92 giây**. G2 không chấm p95, nên điều này không mất điểm hôm nay; nhưng nếu băng ẩn có thêm check p95 cho G2 (hoặc tải cao hơn một chút), tôi sẽ trượt.
+**Tình huống còn xử lý kém:** khi provider dẫn đầu vừa chậm vừa đang mở breaker, p95 của tôi trên G2 là **10,92 s** — cao hơn hẳn p50 (3,036 s) và chỉ cách mức trần 10 s mà G4 đang phải tuân thủ đúng **0,92 giây**. G2 không chấm p95, nên điều này không mất điểm hôm nay; nhưng nếu băng ẩn có thêm check p95 cho G2 (hoặc tải cao hơn một chút), tôi sẽ trượt.
 
 **Nguyên nhân, có số:** lượt gọi đầu tiên đi vào `alpha` đang quá tải, bị treo đủ lâu để chạm trần `attempt_timeout_s` 8 s, rồi mới failover sang `alpha-eu` mất thêm ~1,5 s — p95 ≈ 8 + 1,5 + 1,2 s. Trần timeout đang được trả giá bằng chính độ trễ đuôi.
 
